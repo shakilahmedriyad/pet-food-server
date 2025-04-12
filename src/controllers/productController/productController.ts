@@ -27,8 +27,8 @@ export async function getProducts(req: Request, res: Response) {
 
 export async function addProduct(req: Request, res: Response) {
   try {
-    const { name, description, price, category, imageUrl } = await req.body;
-    const rating = Math.random() * 5 + 1;
+    const { name, description, price, category, imageUrl, rating } =
+      await req.body;
     const product = await Product.create({
       name,
       description,
@@ -40,6 +40,24 @@ export async function addProduct(req: Request, res: Response) {
 
     res.status(201).json({
       message: "Product added successfully",
+      product: product,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Internal server error",
+      error: error,
+    });
+  }
+}
+
+export async function deleteProduct(req: Request, res: Response) {
+  try {
+    const id = req.params.productId;
+
+    const product = await Product.deleteOne({ _id: id });
+
+    res.status(201).json({
+      message: "Product deleted successfully",
       product: product,
     });
   } catch (error) {

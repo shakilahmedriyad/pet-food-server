@@ -4,6 +4,7 @@ import {
   addProduct,
   getProducts,
   getBestSell,
+  deleteProduct,
 } from "../controllers/productController/productController";
 import {
   addCarousel,
@@ -13,7 +14,8 @@ import {
 router
   .get("/products", getProducts)
   .get("/bestsell", getBestSell)
-  .post("/product", addProduct);
+  .post("/product", addProduct)
+  .delete("/product/:productId", deleteProduct);
 
 router.get("/carousel", getCarousel).post("/carousel", addCarousel);
 
