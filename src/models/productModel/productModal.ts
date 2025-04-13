@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface IProduct extends Document {
+interface IProducts extends Document {
   name: string;
   description: string;
   price: number;
@@ -10,7 +10,7 @@ interface IProduct extends Document {
   isFavorite: boolean;
 }
 
-const productSchema: Schema<IProduct> = new Schema({
+const productSchema: Schema<IProducts> = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
@@ -20,4 +20,4 @@ const productSchema: Schema<IProduct> = new Schema({
   isFavorite: { type: Boolean, default: false },
 });
 
-export const Product = mongoose.model<IProduct>("Products", productSchema);
+export const Product = mongoose.model<IProducts>("Products", productSchema);
