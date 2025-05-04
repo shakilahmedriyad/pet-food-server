@@ -10,7 +10,11 @@ import {
   addCarousel,
   getCarousel,
 } from "../controllers/carouselController/carouselController";
-import { getResult } from "../controllers/resultController/getResult";
+import {
+  getResult,
+  getSemesters,
+  getStudentInfo,
+} from "../controllers/resultController/getResult";
 
 router
   .get("/products", getProducts)
@@ -21,5 +25,8 @@ router
 router.get("/carousel", getCarousel).post("/carousel", addCarousel);
 //@ts-ignore
 router.get("/result", getResult);
+router.get("/result/semesterList", getSemesters);
+//@ts-ignore
+router.get("/result/studentInfo", getStudentInfo);
 
 export default router;
