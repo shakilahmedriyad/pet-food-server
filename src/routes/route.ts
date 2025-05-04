@@ -10,6 +10,7 @@ import {
   addCarousel,
   getCarousel,
 } from "../controllers/carouselController/carouselController";
+import { getResult } from "../controllers/resultController/getResult";
 
 router
   .get("/products", getProducts)
@@ -18,5 +19,7 @@ router
   .delete("/product/:productId", deleteProduct);
 
 router.get("/carousel", getCarousel).post("/carousel", addCarousel);
+//@ts-ignore
+router.get("/result", getResult);
 
 export default router;
