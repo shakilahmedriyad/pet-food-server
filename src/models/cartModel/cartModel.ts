@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface ICart extends Document {
+interface ICarts extends Document {
   userId: string;
   products: {
     productId: string;
@@ -8,7 +8,7 @@ interface ICart extends Document {
   }[];
 }
 
-const cartSchema: Schema<ICart> = new Schema({
+const cartSchema: Schema<ICarts> = new Schema({
   userId: { type: String, required: true },
   products: [
     {
@@ -18,5 +18,5 @@ const cartSchema: Schema<ICart> = new Schema({
   ],
 });
 
-export const Cart = mongoose.model<ICart>("Cart", cartSchema);
+export const Cart = mongoose.model<ICarts>("Cart", cartSchema);
 export default Cart;
